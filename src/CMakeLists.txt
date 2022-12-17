@@ -6,6 +6,9 @@ add_executable(mouseHub
 mouse.cpp
 )
 
+target_link_libraries(mouseHub 
+ -lX11
+)
+
 # add_subdirectory()
 # include_directories()
-# target_link_libraries(mouseHub)
