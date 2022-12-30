@@ -22,6 +22,7 @@ int main(int argc, char **argv)
     XEvent xevent;
     Window window;
 
+
     if( (display = XOpenDisplay(NULL)) == NULL )
         return -1;
 
@@ -47,6 +48,7 @@ int main(int argc, char **argv)
                 printf("Mouse move      : [%d, %d]\n", xevent.xmotion.x_root, xevent.xmotion.y_root);
                 break;
             case ButtonPress:
+                XSendEvent(display, window, true, ButtonPressMask, &xevent);
                 printf("Button pressed  : %s\n", key_name[xevent.xbutton.button - 1]);
                 break;
             case ButtonRelease:
